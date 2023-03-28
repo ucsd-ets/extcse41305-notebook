@@ -37,7 +37,7 @@ RUN conda env create --file /tmp/env.yml && \
     CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)")) && \
     echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib/:$CUDNN_PATH/lib' > $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh && \
     python -m ipykernel install --name=${KERNEL}
-
+ENV CUDNN_PATH=/opt/conda/envs/cse41305/lib/python3.9/site-packages/nvidia/cudnn/lib
 USER jovyan
 
 # RUN conda install -y scikit-learn
