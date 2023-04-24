@@ -24,6 +24,13 @@ RUN chmod +x /run_jupyter.sh
 #     fix-permissions $CONDA_DIR && \
 #     fix-permissions /home/$NB_USER
 
+# Install octave
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update && apt-get -yq dist-upgrade \
+    && apt-get install -yq --no-install-recommends \
+    octave \
+    && rm -rf /var/lib/apt/lists/*
+
 # 3) install packages using notebook user
 RUN conda install nb_conda_kernels
 ARG KERNEL=cse41305
