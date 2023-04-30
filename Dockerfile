@@ -50,6 +50,7 @@ ENV CUDNN_PATH=/opt/conda/envs/cse41305/lib/python3.9/site-packages/nvidia/cudnn
 # Install gnuplot & required dependencies 
 RUN apt-get update -y && \
     apt-get -qq install -y --no-install-recommends gnuplot 
+    apt-get -qq install -y --no-install-recommends libfltk1.3-dev 
 USER jovyan
 
 # RUN conda install -y scikit-learn
