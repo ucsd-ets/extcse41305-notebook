@@ -28,9 +28,12 @@ RUN chmod +x /run_jupyter.sh
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -yq dist-upgrade \
     && apt-get install -yq --no-install-recommends \
-    octave=6.2.0 \
+    octave \
     && rm -rf /var/lib/apt/lists/*
-
+    
+# Install gnuplot & required dependencies 
+RUN apt-get update -y && \
+    apt-get -qq install -y --no-install-recommends gnuplot
 # 3) install packages using notebook user
 RUN conda install nb_conda_kernels
 ARG KERNEL=cse41305
@@ -47,9 +50,7 @@ RUN conda env create --file /tmp/env.yml && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
 ENV CUDNN_PATH=/opt/conda/envs/cse41305/lib/python3.9/site-packages/nvidia/cudnn
-# Install gnuplot & required dependencies 
-RUN apt-get update -y && \
-    apt-get -qq install -y --no-install-recommends gnuplot 
+ 
 USER jovyan
 
 # RUN conda install -y scikit-learn
