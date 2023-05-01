@@ -28,7 +28,7 @@ RUN chmod +x /run_jupyter.sh
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -yq dist-upgrade \
     && apt-get install -yq --no-install-recommends \
-    octave \
+    octave=6.2.0 \
     && rm -rf /var/lib/apt/lists/*
 
 # 3) install packages using notebook user
