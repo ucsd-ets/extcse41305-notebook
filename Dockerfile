@@ -31,7 +31,7 @@ RUN apt-get update && apt-get -yq dist-upgrade \
     octave \
     && rm -rf /var/lib/apt/lists/*
     
-# Install gnuplot & required dependencies 
+# Install gnuplot & required dependencies - move it up, before conda - try to fix "figure"
 RUN apt-get update -y && \
     apt-get -qq install -y --no-install-recommends gnuplot
 # 3) install packages using notebook user
