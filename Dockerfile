@@ -34,7 +34,7 @@ RUN apt-get update && apt-get -yq dist-upgrade \
 # Install gnuplot & required dependencies - move it up, before conda - try to fix "figure"
 RUN apt-get update -y && \
     apt-get -qq install -y --no-install-recommends gnuplot
-RUN conda install gnuplot_kernel
+RUN pip install gnuplot_kernel
 # 3) install packages using notebook user
 RUN conda install nb_conda_kernels
 ARG KERNEL=cse41305
