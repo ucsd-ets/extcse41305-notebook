@@ -27,7 +27,7 @@ RUN chmod +x /run_jupyter.sh
 # Install octave
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -yq dist-upgrade \
-    && apt-get install -yq --no-install-recommends \
+    && apt-get install -yq \
     octave \
     && rm -rf /var/lib/apt/lists/*
 
