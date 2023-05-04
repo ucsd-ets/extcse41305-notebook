@@ -53,7 +53,7 @@ RUN apt-get update -y && \
     apt-get -qq install -y --no-install-recommends gnuplot
 RUN pip install gnuplot_kernel 
 USER jovyan
-
+ 
 # RUN conda install -y scikit-learn
 
 # RUN pip install --no-cache-dir networkx scipy
