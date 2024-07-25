@@ -25,7 +25,7 @@ RUN chmod +x /run_jupyter.sh
 #     fix-permissions /home/$NB_USER
 
 # 3) install packages using notebook user
-RUN conda install nb_conda_kernels
+RUN conda install nb_conda_kernels -c conda-forge
 ARG KERNEL=cse41305
 ENV CONDA_PREFIX=/opt/conda/envs/${KERNEL}
 COPY env.yml /tmp
@@ -44,7 +44,7 @@ RUN apt-get update -y && \
     apt-get -qq install -y --no-install-recommends \ gnuplot 
 USER jovyan
 
-# RUN conda install -y scikit-learn
+# RUN conda install -y scikit-learn -c conda-forge
 
 # RUN pip install --no-cache-dir networkx scipy
 
